@@ -22,7 +22,7 @@ export default async (req, res, next) => {
 
     // Save the reset token and expiration date in the user document
     user.resetPasswordToken = resetToken;
-    user.resetPasswordExpires = Date.now() + 3600000; // Token valid for 1 hour
+    user.resetPasswordExpires = Date.now() + 600000; // Token valid for 1o min
     await user.save();
 
     // Send the password reset email
@@ -40,7 +40,9 @@ export default async (req, res, next) => {
       from: 'santyperez145s@gmail.com',
       to: user.email,
       subject: 'Password Reset',
-      html: `<p>Click the link to reset your password: <a href="${resetLink}">${resetLink}</a></p>`,
+      html: `
+      <img src"https://i.postimg.cc/CK8g6nFX/Logo-Fast-Commerce.png" style="heigh:200px">
+      <p>Click the link to reset your password: <a href="${resetLink}">${resetLink}</a></p>`,
     };
 
     transporter.sendMail(mailOptions, (error, info) => {

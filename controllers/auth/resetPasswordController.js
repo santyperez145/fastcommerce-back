@@ -3,12 +3,12 @@ import User from '../../models/User.js';
 
 export default async (req, res) => {
   try {
-    const { token } = req.params;
+    const { resetToken } = req.params;
     const { newPassword } = req.body;
 
     // Find the user based on the reset token
     const user = await User.findOne({
-      resetPasswordToken: token,
+      resetPasswordToken: resetToken,
       resetPasswordExpires: { $gt: Date.now() }, // Check if the token is still valid
     });
 

@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.use('/auth',auth_router)
+router.use('/auth', auth_router)
 router.use('/brands', brand_router )
 router.use('/offers', offer_router)
 router.use('/payment', payment_router)
