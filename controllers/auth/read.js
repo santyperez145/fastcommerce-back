@@ -1,10 +1,20 @@
-export default function(req,res,next){
+import createHttpError from 'http-errors'
+import User from '../../models/User.js'
+
+export default async(req,res,next) => {
     try{
-        return res.status(200).json({
-            success:true,
-            response:'acá nos vamos a conectar a mongo en sprint-3',
-            message:'/chapters'
-        })
+        let all = await User.find()
+        if(all.length > 0){
+            return res.status(200).json({
+                response:all,
+                success:true,
+                message:'you have requested GET /api/authors/',
+                date: new Date()
+            })
+        }
+        else{
+            return next(createHttpError(404, 'Not found authors'))
+        }
     }
     catch(error){
         next(error)

@@ -1,6 +1,10 @@
 import express from 'express'
 import auth_router from './auth.js';
 import product_router from './products.js';
+import brand_router from './brands.js';
+import offer_router from './offers.js';
+import payment_router from './payment.js';
+import cart_router from './cart.js';
 
 let router = express.Router();
 
@@ -15,7 +19,12 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.use('/auth',auth_router)
+
 router.use('/products', product_router)
+router.use('/auth', auth_router)
+router.use('/brands', brand_router )
+router.use('/offers', offer_router)
+router.use('/payment', payment_router)
+router.use('/cart', cart_router)
 
 export default router
