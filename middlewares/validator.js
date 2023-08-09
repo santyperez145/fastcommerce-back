@@ -1,14 +1,17 @@
-const validator = (schema) => [
+let validator = (schema) => [
+
     (req, res, next) => {
-        const validation = schema.validate(req.body, {abortEarly:false})
-        if (validation.error) {
-            console.log(validation)
-            return res.status(400).json({
+        const validation = schema.validate(req.body,{abortEarly: false})//validate: valida el body
+        if(validation.error) {                                          //abortEarly: false realiza todas las validaciones
+            return res.status(400).json({                               //en caso contrario devuelve cada una de las validaciones
+
                 success: false,
-                messages: validation.error.details.map(error => error.message)
+                message: validation.error.details.map(error => error.message)
             })
         }
-        return next()
+        return next();
     }
-]
-export default validator
+];
+
+export default validator;
+
