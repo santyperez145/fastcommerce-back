@@ -1,5 +1,6 @@
 import express from 'express'
 import auth_router from './auth.js';
+import product_router from './products.js';
 
 let router = express.Router();
 
@@ -15,5 +16,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.use('/auth',auth_router)
+router.use('/products', product_router)
 
 export default router
