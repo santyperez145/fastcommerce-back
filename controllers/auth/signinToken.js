@@ -2,10 +2,8 @@ import User from "../../models/User.js";
 
 export default async(req,res,next)=> {
     try {
-        let one = await User.findOneAndUpdate(
-            {email: req.body.email},
-            {online: true},
-            {new: true}
+        let one = await User.findById(
+            req.user._id
         )
         delete one.password
         return res.status(200).json({
