@@ -1,7 +1,7 @@
 import joi from "joi"
 
 let productCreate = joi.object({
-    category_id: joi.string().optional().messages({
+    category_id: joi.string().required().messages({
         "any.required": "Category is required"
     }),
     name: joi.string().required().messages({
@@ -26,7 +26,7 @@ let productCreate = joi.object({
         'number.integer': 'Stock must be an integer number',
         'number.base': 'Stock must be a number'
     }),
-    offer: joi.string()
+    offer: joi.string().optional()
 })
 
 export default productCreate;
