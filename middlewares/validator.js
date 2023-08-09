@@ -14,3 +14,4 @@ let validator = (schema) => [
 ];
 
 export default validator;
+
