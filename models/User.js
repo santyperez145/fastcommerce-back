@@ -7,18 +7,21 @@ import {Schema, model} from 'mongoose'
 //cada objeto de ese array era un documento de la coleccion
 
 let collection = 'users' //los nombres de la colecciones van siempre en plural (porque son un conjunto de), van siemore en ingles y tienen que ser descriptivos del recurso (ej.. recurso: category => coleccion: categories)
-let schema = new Schema({ //defino el primer objeto con las propiedades necesarias para el modelo
-    name: {type: String, required: true},
-    email: {type: String, required: true},
-    password: {type: String, required: true},
-    photo: {type: String, required: true},
-    role:{type: Number, default:0},
-    online:{type: Boolean, default:false},
-    verified:{type: Boolean, default: true}, //en el sprint 5 esto cambia a false y se debe verificar la cuenta con el codigo de verificación
-    verify_code:{type: String}
-} , {
+const schema = new Schema({
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    password: { type: String, required: true },
+    photo: { type: String, required: true },
+    role: { type: Number, default: 0 },
+    online: { type: Boolean, default: false },
+    verified: { type: Boolean, default: true },
+    verify_code: { type: String },
+    resetPasswordToken: { type: String },           // Agregar este campo
+    resetPasswordExpires: { type: Date },          // Agregar este campo
+}, {
     timestamps: true
-})
+});
+
 
 let User = model(collection, schema)
 

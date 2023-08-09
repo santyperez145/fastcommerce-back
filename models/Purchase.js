@@ -1,7 +1,6 @@
 // models/Purchase.js
 import { Schema, model } from 'mongoose';
 
-let collection = 'purchases'
 const purchaseSchema = new Schema({
   user_id: { type: Schema.Types.ObjectId, ref: 'users', required: true },
   items: [
@@ -11,8 +10,9 @@ const purchaseSchema = new Schema({
     },
   ],
   payment_status: { type: String, enum: ['pending', 'approved', 'rejected'], default: 'pending' },
-  payment_id: { type: String }, // Agrega campos adicionales según tu necesidad
-  // Otros campos relevantes
+  payment_id: { type: String },
+  shipping_status: { type: String, enum: ['pending', 'shipped', 'delivered'], default: 'pending' },
+  order_number: { type: String },
 }, { timestamps: true });
 
 const Purchase = model('Purchase', purchaseSchema);
