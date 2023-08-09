@@ -3,7 +3,6 @@ import Category from "../../models/Category.js";
 let create = async (req, res, next) => {
     try {
         let { name, description, cover_photo } = req.body;
-        
         if (!name) {
             return res.status(401).json({
                 success: false,
