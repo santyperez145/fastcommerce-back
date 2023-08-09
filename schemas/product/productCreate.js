@@ -25,7 +25,8 @@ let productCreate = joi.object({
     stock: joi.number().required().min(1).max(10).messages({
         'number.integer': 'Stock must be an integer number',
         'number.base': 'Stock must be a number'
-    })
+    }),
+    offer: joi.string()
 })
 
 export default productCreate;

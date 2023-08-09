@@ -5,7 +5,7 @@ let schema = new Schema(
     {
         name: { type: String, require: true },
         description: { type: String, requiere: false },
-        cover_photo: { type: String, requiere: false },
+        cover_photo: { type: String, requiere: true },
     }
 )
 

@@ -2,7 +2,7 @@ import Category from "../../models/Category.js";
 
 let create = async (req, res, next) => {
     try {
-        let { name } = req.body;
+        let { name, description, cover_photo } = req.body;
         
         if (!name) {
             return res.status(401).json({
@@ -11,7 +11,21 @@ let create = async (req, res, next) => {
             })
         }
 
-        let existingCategory = await Category.findOne({name});
+        if (!description) {
+            return res.status(401).json({
+                success: false,
+                menssage: 'You must provide a description'
+            })
+        }
+
+        if (!cover_photo) {
+            return res.status(401).json({
+                success: false,
+                menssage: 'You must provide a cover photo'
+            })
+        }
+
+        let existingCategory = await Category.findOne({ name, description, cover_photo });
         if (existingCategory) {
             return res.status(200).json({
                 success: false,
