@@ -7,6 +7,7 @@
     "users": "node ./models/data/users.js",
     "authors": "node ./models/data/authors.js",
     "categories": "node ./models/data/categories.js",
+    "products": "node ./models/data/products.js",
     "carpentry": "node ./models/data/carpentry.js",
     "constructions": "node ./models/data/constructions.js",
     "electricals": "node ./models/data/electricals.js",

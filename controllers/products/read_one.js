@@ -2,16 +2,9 @@ import Product from "../../models/Product.js";
 
 const read_one = async (req, res, next) => {
     try {
-        const { id } = req.params;
+        const product_id = req.params.id;
+        const product = await Product.findById(product_id);
 
-        if (!id) {
-            return res.status(400).json({
-                success: false,
-                message: 'Product ID is missing'
-            });
-        }
-
-        const product = await Product.findOne({ _id: id });
 
         if (!product) {
             return res.status(404).json({
@@ -29,6 +22,6 @@ const read_one = async (req, res, next) => {
     } catch (error) {
         return next(error);
     }
-}
+};
 
 export default read_one;
