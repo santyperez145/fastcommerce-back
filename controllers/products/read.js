@@ -3,7 +3,7 @@ import Product from "../../models/Product.js";
 let read = async (req, res, next) => {
     try {
        let queries = {}
-       let pagination = {page: 1, limit: 18};
+       ///let pagination = {page: 1, limit: 18};
        
        if (req.query.page) {
         pagination.page = req.query.page
@@ -21,23 +21,23 @@ let read = async (req, res, next) => {
         queries.description = new RegExp(req.query.brand.trin(), 'i')
        }
 
-       let products = await Product.find({queries})
+       let products = await Product.find(queries)
         .sort({price: 1, name: 1, createdAt: 1})
-        .skip(pagination.page > 0 ? (pagination.page - 1) * pagination.limit : 0)
-        .limit(pagination.limit > 0 ? pagination.limit : 0)
+        //.skip(pagination.page > 0 ? (pagination.page - 1) * pagination.limit : 0)
+        //.limit(pagination.limit > 0 ? pagination.limit : 0)
 
         let counter = await Product.countDocuments(queries)
-        let pages = Math.ceil(counter/pagination.limit)
-        let prevPage = pagination.page > 1 ? Number(pagination.page) -1 : 0
-        let nextPage = pagination.limit < pages ? Number(pagination.page) + 1 : 0
+        //let pages = Math.ceil(counter/pagination.limit)
+        //let prevPage = pagination.page > 1 ? Number(pagination.page) -1 : 0
+        //let nextPage = pagination.limit < pages ? Number(pagination.page) + 1 : 0
 
         return res.status(201).json({
             success: true,
             message: 'Products finded sucessfully',
             response: products,
-            pages,
-            prevPage,
-            nextPage
+            //pages,
+            //prevPage,
+            //nextPage
         })
 
     } catch (error) {

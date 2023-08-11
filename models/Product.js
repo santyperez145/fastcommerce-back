@@ -11,7 +11,7 @@ let schema = new Schema(
         brand: { type: String, require: true },
         stock: { type: Number, require: true },
         favorite: { type: Boolean, default: false },
-        offer: { type: Types.ObjectId, ref: 'offers' },
+        offer: { type: Boolean, default: false },
     },
     {timestamps: true}
     )

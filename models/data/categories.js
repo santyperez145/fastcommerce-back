@@ -45,7 +45,7 @@ let categories = [
     cover_photo: "https://www.southernliving.com/thmb/vJhsGDU01U8rpHUQvPQ-o-h44Eg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/kitchenaid-cordless-blender-81SM9VMhPQL._AC_SL1500_-1-2646722aa49942998925975787dfe204.jpg",
   },
   {
-    name: "pinting",
+    name: "painting",
     description: "Things you need to make your whole world coloried",
     cover_photo: "https://procrewschedule.com/wp-content/uploads/2020/06/Different-painting-tools-for-house-renovation.jpg",
   },
