@@ -2,9 +2,9 @@ import Product from "../../models/Product.js";
 
 let remove = async (res, req, next) => {
     try {
-        let {id} = req.params
-        let productDeleted = await Product.findByIdAndDelete(id)
-        if (!productDeleted) {
+        let {id} = req.params;
+        let productRemoved = await Product.findByIdAndDelete(id);
+        if (!productRemoved) {
             return res.status(400).json({
                 success: false,
                 message: "Product doesn't exist"
@@ -12,8 +12,7 @@ let remove = async (res, req, next) => {
         }
         return res.status(200).json({
             success: true,
-            message: "Product deleted sucessfully",
-            response: productDeleted
+            message: "Product deleted sucessfully"
         })
 
     } catch (error) {

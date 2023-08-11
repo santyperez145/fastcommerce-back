@@ -1,17 +1,17 @@
 // models/cart.js
-import { Schema, model } from 'mongoose';
+import { Schema, model, Types } from 'mongoose';
 
 let collection = 'carts'
-const cartSchema = new Schema({
-  user_id: { type: Schema.Types.ObjectId, ref: 'users', required: true },
+const schema = new Schema({
+  user_id: { type: Types.ObjectId, ref: 'users', required: true },
   items: [
     {
-      product: { type: Schema.Types.ObjectId, ref: 'products', required: true },
+      product: { type: Types.ObjectId, ref: 'products', required: true },
       quantity: { type: Number, default: 1 },
     },
   ],
 });
 
-const Cart = model('Cart', cartSchema);
+const Cart = model(collection, schema);
 
 export default Cart;
