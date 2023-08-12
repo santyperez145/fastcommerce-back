@@ -11,7 +11,7 @@ let cart_router = Router()
 cart_router.get('/:user_id', getCartItems);
 cart_router.post('/add-to-cart', addToCart);
 cart_router.put('/update-cart-item', updateCartItem);
-cart_router.put('/remove-cart-item/:product_id', removeCartItem);
+cart_router.put('/remove-cart-item/:productId', removeCartItem);
 cart_router.get('/cartdetails/:id', read_one)
 
 export default cart_router
