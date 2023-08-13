@@ -1,5 +1,5 @@
 import Cart from "../../models/Cart.js";
-import Product from "../../models/Product.js"; // Importa el modelo de Producto
+import Product from "../../models/Product.js";
 
 export default async (req, res) => {
   const { user_id, items } = req.body;
@@ -13,10 +13,15 @@ export default async (req, res) => {
 
     // Restar la cantidad seleccionada del stock del producto
     for (const item of items) {
-      await Product.updateOne(
-        { _id: item.product },
-        { $inc: { stock: -item.quantity } }
-      );
+      const product = await Product.findById(item.product);
+      if (!product) {
+        return res.status(404).json({ error: `Product with ID ${item.product} not found` });
+      }
+      if (item.quantity > product.stock) {
+        return res.status(400).json({ error: `Insufficient stock for product: ${product.name}` });
+      }
+      product.stock -= item.quantity;
+      await product.save();
     }
 
     res.json({ message: 'Products added to cart' });
