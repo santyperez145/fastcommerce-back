@@ -14,7 +14,7 @@ const schema = new Schema({
     photo: { type: String, required: true },
     role: { type: Number, default: 0 },
     online: { type: Boolean, default: false },
-    verified: { type: Boolean, default: true },
+    verified: { type: Boolean, default: false },
     verify_code: { type: String },
     resetPasswordToken: { type: String },           // Agregar este campo
     resetPasswordExpires: { type: Date },          // Agregar este campo
