@@ -4,7 +4,7 @@ const userRegister = joi.object({
   name: joi.string()
     .required()
     .min(2)
-    .alphanum()
+    //.alphanum()
     .messages({
       'any.required': 'Name is required',
       'string.empty': 'Name is required',

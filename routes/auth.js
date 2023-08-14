@@ -16,6 +16,7 @@ import generateToken from '../middlewares/generateToken.js';
 import forgotPasswordController from '../controllers/auth/forgotPasswordController.js';
 import resetPasswordController from '../controllers/auth/resetPasswordController.js'
 import signinToken from '../controllers/auth/signinToken.js'
+import verify_email from '../controllers/auth/verify_email.js'
 
 
 let auth_router = Router()
@@ -39,5 +40,8 @@ auth_router.post('/forgot-password', forgotPasswordController);
 
 //RESET PASSWORD 
 auth_router.post('/reset-password/:token', resetPasswordController);
+
+//EMAIL VERIFICATION
+auth_router.get("/verify/:verify_code", verify_email)
 
 export default auth_router
