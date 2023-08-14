@@ -358,7 +358,7 @@ let products = [
             }
         ],
         cover_photo: [
-            "https://sodimac.scene7.com/is/image/SodimacCL/438537_00?wid=1500&hei=1500&qlt=70",
+            "https://sodimac.scene7.com/is/image/SodimacCL/438537_01?wid=1500&hei=1500&qlt=70",
             "https://sodimac.scene7.com/is/image/SodimacCL/438537_02?wid=1500&hei=1500&qlt=70",
             "https://sodimac.scene7.com/is/image/SodimacCL/438537_26?wid=1500&hei=1500&qlt=70",
         ],
@@ -1185,7 +1185,7 @@ let products = [
             }
         ],
         cover_photo: [
-            "https://sodimac.scene7.com/is/image/SodimacCL/4227271_00?wid=1500&hei=1500&qlt=70",
+            "https://sodimac.scene7.com/is/image/SodimacCL/4227271_21?wid=1500&hei=1500&qlt=70",
             "https://sodimac.scene7.com/is/image/SodimacCL/4227271_01?wid=1500&hei=1500&qlt=70",
             "https://sodimac.scene7.com/is/image/SodimacCL/4227271_03?wid=1500&hei=1500&qlt=70",
         ],

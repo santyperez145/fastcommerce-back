@@ -3,7 +3,8 @@ import Product from "../../models/Product.js";
 let read = async (req, res, next) => {
     try {
        let queries = {}
-       ///let pagination = {page: 1, limit: 18};
+       //let pagination = {page: 1, limit: 12};
+       let sort = {};
        
        if (req.query.page) {
         pagination.page = req.query.page
@@ -12,7 +13,7 @@ let read = async (req, res, next) => {
         pagination.limit = req.pagination.limit;
        }
        if (req.query.name){
-        queries.name = new RegExp(req.query.name.trin(), 'i')
+        queries.name = new RegExp(req.query.name.trim(), 'i')
        }
        if (req.query.description) {
         queries.description = req.query.description
@@ -20,9 +21,18 @@ let read = async (req, res, next) => {
        if (req.query.brand) {
         queries.description = new RegExp(req.query.brand.trin(), 'i')
        }
+       // Ordenar por nombre (name) de manera ascendente (A-Z) o descendente (Z-A)
+        if (req.query.sortByName) {
+            sort.name = req.query.sortByName === 'asc' ? 1 : -1;
+        }
+
+        // Ordenar por precio (price) de manera ascendente (menor a mayor) o descendente (mayor a menor)
+        if (req.query.sortByPrice) {
+            sort.price = req.query.sortByPrice === 'asc' ? 1 : -1;
+        }
 
        let products = await Product.find(queries)
-        .sort({price: 1, name: 1, createdAt: 1})
+        .sort(sort)
         //.skip(pagination.page > 0 ? (pagination.page - 1) * pagination.limit : 0)
         //.limit(pagination.limit > 0 ? pagination.limit : 0)
 

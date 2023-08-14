@@ -81,7 +81,7 @@ let flooring = [
             }
         ],
         cover_photo: [
-            "https://sodimac.scene7.com/is/image/SodimacCL/4227271_00?wid=1500&hei=1500&qlt=70",
+            "https://sodimac.scene7.com/is/image/SodimacCL/4227271_21?wid=1500&hei=1500&qlt=70",
             "https://sodimac.scene7.com/is/image/SodimacCL/4227271_01?wid=1500&hei=1500&qlt=70",
             "https://sodimac.scene7.com/is/image/SodimacCL/4227271_03?wid=1500&hei=1500&qlt=70",
         ],
