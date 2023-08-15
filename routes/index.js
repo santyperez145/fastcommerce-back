@@ -6,6 +6,7 @@ import payment_router from './payment.js';
 import cart_router from './cart.js';
 import category_router from './categories.js';
 import product_router from './products.js';
+import comment_router from './comment.js';
 
 let router = express.Router();
 
@@ -27,5 +28,6 @@ router.use('/payment', payment_router)
 router.use('/cart', cart_router)
 router.use('/categories', category_router)
 router.use('/products', product_router)
+router.use('/comments',comment_router)
 
 export default router
